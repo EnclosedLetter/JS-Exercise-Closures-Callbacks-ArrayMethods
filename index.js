@@ -221,12 +221,17 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
 
 // first_name: "Charmain", last_name: "Seiler",
 function getFullNames(runners) {
+  
+  // let name = []
+  // runners.forEach((runner) => { name.push(runner.last_name + ", " + runner.first_name); });
+  // return name;
+  
   const allRunners = [] /*This is creating a new array, per the instructions*/
 
-  const gettingName = runners.forEach(function(ban){ /* Create a variable for function, should we be doing a function declaration? or is it ok to assign them variables?
-                                                      use the forEach, WHAT DOES THE BANANA WORD REPRESENT HERE? */
+  const gettingName = runners.forEach((ban)=>{ /* Create a variable for function, should we be doing a function declaration? or is it ok to assign them variables?
+                                                      use the forEach, WHAT DOES THE BANANA WORD REPRESENT HERE? IS THIS REFERING TO THE ARRAY? cityData.forEach ((currentValue, index) => {*/
     
-    return runners.push(`${ban.last_name}, ${ban.first_name}`)
+    return allRunners.push(`${ban.last_name}, ${ban.first_name}`) /*REMEMBER THAT YOU ARE GETTING THE ARRAY YOU CREATED, AND PUSHING etc. You had runners.push THIS IS WRONG.*/
   })
   return allRunners;
 }
@@ -243,8 +248,26 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+// return runners.map((runners) => {
+//    return runners.first_name.toUpperCase(); 
+//   });
+
+// --CORRECT WAY TO WRITE THIS
+
+const allRunnersCap = [];
+
+ const mapMethod = runners.map(function(ban){
+    return ban.first_name.toUpperCase();
+ })
+ return mapMethod;
+
+//  const allRunnersCap = []; --
+
+//  const mapMethod = runners.map(function(ban){
+//     return allRunnersCap.first_name.toUpperCase();
+//  })
+//  return allRunnersCap;
 }
 
 /**
