@@ -15,7 +15,8 @@
  * should return 'foofoo'.
 */
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+ let first = stringList[0]
+  return callback(first)
 }
 
 // ⭐️ Example Challenge END ⭐️
@@ -49,7 +50,7 @@ function processFirstItem(stringList, callback) {
  * should return "There are 0".
 */
 function processLength(list, cb) {
-  
+  // You are creating a variable to hold the length of the array "list", you give it the length method
   const length = list.length;
   return cb(length);
 }
@@ -69,10 +70,16 @@ function processLength(list, cb) {
  * should return 'barbar'.
 */
 function processLastItem(stringList, cb) {
+  // This is asking for us to return a function? with the last index in stringList. We can achieve this by either using .pop and grabbing what it popped, or by 
+  // getting the last index in the array by -1. 
+  // CAN YOU EXPLAIN WHAT THIS IS TELLING MediaDeviceInfo, WHY DO WE HAVE TO CALL THE Array, THEN CALL IT AGAIN AND DO -1 IN THERE?
+  const lastElem = stringList[stringList.length-1]
+  return cb(lastElem)
+  
   // let lastItem = stringList.pop();
   // return cb(lastItem);
   // 2nd method
-  return cb (stringList[stringList.length-1]);
+  // return cb (stringList[stringList.length-1]);
 
 }
 
@@ -94,10 +101,25 @@ function processLastItem(stringList, cb) {
  * should return 1000.
 */
 function processSum(numberList, cb) {
-  return cb(numberList.reduce((acc, curr) =>{
+  // This wants us to get the sum of all the elements in the Array of numbersList. You will be using reduce for this. Reduce is used when wanting to add elements in an array.
+  // You start off by applying the reduce method into numbersList, set it up, use your Reduce parameters acc (the accumulated value) and curr {the current value of the Array when added}
+  // At first I set it up correctly, but I have not added my starting point. You do this by adding the curly brackets after the parameters, and separate by a comma.
+  // AccumulatedValue comes first then CurrentValue in reduce. 
+  // Curly brackets after the parameters
+  // wHY DO YOU HAVE TO PUT THE CURLY BRACKETS THERE?
+  // You are calling the name of the function here by using processSum, not the Array, which you need.
+  // const sumOfAllElem = processSum/*You need to call the Array here not the name of the function stoopid.*/.reduce(function(acc, curr){
+  //   return acc + curr;
+  // },0)
+  
+  // return cb(sumOfAllElem)
+  
+  const sumOfAll = numberList.reduce((acc, curr)=>{
     return acc + curr;
-  }, 0)
-  )
+  },0)
+
+  return cb(sumOfAll)
+  
 }
 
 /**
@@ -118,8 +140,12 @@ function processSum(numberList, cb) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+
+// This seems a bit simple but yeah, it just wants us to to mulptiply num1 and num2
+function processProduct(num1, num2, cb) {
+  const product = num1* num2;
+  
+  return cb(product)
 }
 
 /**
@@ -142,8 +168,13 @@ function processProduct(/* CODE HERE */) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
-  /* CODE HERE */
+
+// I thought since it's asking us to invoke and "if" then we would be required to do that, is ther another method that was intedned to solve this problem? You use .include() and put what variable you are looking for in the () before that, you would put the array to look for it in. you can then also put a , in the () to check if it is included after. ex: list.include(item, 2)
+// Don't forget your return keyword!!
+function processContains(item, list, callback) {
+  const inHere = list.includes(item);
+
+  return callback(inHere);
 }
 
 /**
