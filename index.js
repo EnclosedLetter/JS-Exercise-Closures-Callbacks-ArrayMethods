@@ -218,8 +218,17 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+
+// first_name: "Charmain", last_name: "Seiler",
+function getFullNames(runners) {
+  const allRunners = [] /*This is creating a new array, per the instructions*/
+
+  const gettingName = runners.forEach(function(ban){ /* Create a variable for function, should we be doing a function declaration? or is it ok to assign them variables?
+                                                      use the forEach, WHAT DOES THE BANANA WORD REPRESENT HERE? */
+    
+    return runners.push(`${ban.last_name}, ${ban.first_name}`)
+  })
+  return allRunners;
 }
 
 /**
