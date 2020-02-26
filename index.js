@@ -73,7 +73,7 @@ function processLastItem(stringList, cb) {
   // This is asking for us to return a function? with the last index in stringList. We can achieve this by either using .pop and grabbing what it popped, or by 
   // getting the last index in the array by -1. 
   // CAN YOU EXPLAIN WHAT THIS IS TELLING MediaDeviceInfo, WHY DO WE HAVE TO CALL THE Array, THEN CALL IT AGAIN AND DO -1 IN THERE?
-  const lastElem = stringList[stringList.length-1]
+  const lastElem = stringList[stringList.length-1] /*Whenever you want a specific position in a string, you will reference that string/array/ obj*/
   return cb(lastElem)
   
   // let lastItem = stringList.pop();
@@ -222,10 +222,6 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
 // first_name: "Charmain", last_name: "Seiler",
 function getFullNames(runners) {
   
-  // let name = []
-  // runners.forEach((runner) => { name.push(runner.last_name + ", " + runner.first_name); });
-  // return name;
-  
   const allRunners = [] /*This is creating a new array, per the instructions*/
 
   const gettingName = runners.forEach((ban)=>{ /* Create a variable for function, should we be doing a function declaration? or is it ok to assign them variables?
@@ -248,19 +244,30 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
+
+// Map created in new array aleady, so no need to create another one, x is just saying "in this place", 
 function firstNamesAllCaps(runners) {
-// return runners.map((runners) => {
-//    return runners.first_name.toUpperCase(); 
-//   });
+
+//when it says an array, does it mean to create a new array?
+
+// const newArray = [];
+
+const allCaps = runners.map(function(x){
+
+   x.first_name.toUpperCase();                              //am I grabbing the new array to put capital, or runners?
+});
+
+return allCaps;
+
 
 // --CORRECT WAY TO WRITE THIS
 
-const allRunnersCap = [];
+// const allRunnersCap = [];
 
- const mapMethod = runners.map(function(ban){
-    return ban.first_name.toUpperCase();
- })
- return mapMethod;
+//  const mapMethod = runners.map(function(ban){
+//     return ban.first_name.toUpperCase();
+//  })
+//  return mapMethod;
 
 //  const allRunnersCap = []; --
 
