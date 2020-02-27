@@ -72,7 +72,7 @@ function processLength(list, cb) {
 function processLastItem(stringList, cb) {
   // This is asking for us to return a function? with the last index in stringList. We can achieve this by either using .pop and grabbing what it popped, or by 
   // getting the last index in the array by -1. 
-  // CAN YOU EXPLAIN WHAT THIS IS TELLING MediaDeviceInfo, WHY DO WE HAVE TO CALL THE Array, THEN CALL IT AGAIN AND DO -1 IN THERE?
+  // CAN YOU EXPLAIN WHAT THIS IS TELLING up WHY DO WE HAVE TO CALL THE Array, THEN CALL IT AGAIN AND DO -1 IN THERE?
   const lastElem = stringList[stringList.length-1] /*Whenever you want a specific position in a string, you will reference that string/array/ obj*/
   return cb(lastElem)
   
@@ -305,8 +305,14 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+// --------------------------------------
+function tallyUpDonations(runners) {
+  // const donations =
+
+  return runners.reduce(
+    (accumulator, runner) => accumulator + runner.donation,
+    0
+  );
 }
 
 /////////////// CLOSURES ///////////////
@@ -354,8 +360,15 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
+function counterMakerWithLimit(maxValue) {
   /* CODE HERE */
+
+  let count = 0;
+  function counter() {
+    count > maxValue ? (count = 0) : count;
+    return count++;
+  }
+  return counter;
 }
 
 /////////////// END OF CHALLENGE ///////////////
